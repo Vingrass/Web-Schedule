@@ -30,6 +30,26 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+.btns {
+    border: none;
+    background-color: hsl(207, 81%, 58%);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
+      0px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 16px 16px 16px 20px;
+    padding: 14px 34px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+#clearSched{
+    background-color: rgb(221, 9, 9);
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -51,9 +71,10 @@ header {
     text-align: center;
 }
 
-#event{
+.event{
     width: 99%;
 }
+
 
 .float-right {
   float: right;
