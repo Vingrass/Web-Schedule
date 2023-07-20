@@ -30,6 +30,7 @@ saveSched3pm.addEventListener("click", () => saveEvent(6));
 saveSched4pm.addEventListener("click", () => saveEvent(7));
 saveSched5pm.addEventListener("click", () => saveEvent(8));
 
+clearSched.addEventListener("click", () => clearSaved());
 
 timeCheck(currentHour);
 showSaved();
@@ -39,6 +40,9 @@ function timeCheck(currHour){
     if(currHour < 9){
         currHour = 9;
     }
+    if (currHour > 17){
+        currHour = 17;
+    }
 
     changeColor(currHour - 9);
 
@@ -46,7 +50,7 @@ function timeCheck(currHour){
 
 function changeColor(timeID){
 
-    document.getElementById(eventIDlist[timeID]).innerHTML = "boobs lol" ;
+    document.getElementById(eventIDlist[timeID]).style.backgroundColor = "red";
 
 
     for(let i = 0; i < timeID; i++){
@@ -60,7 +64,7 @@ function changeColor(timeID){
 
 function saveEvent(eventID){
 
-    localStorage.setItem(eventIDlist[eventID], document.getElementById(eventIDlist[eventID]).innerHTML);
+    localStorage.setItem(eventIDlist[eventID], document.getElementById(eventIDlist[eventID]).value);
 
 }
 
@@ -68,8 +72,12 @@ function showSaved(){
 
     for(let i = 0; i < eventIDlist.length; i++){
         if(localStorage.getItem(eventIDlist[i])){
-            document.getElementById(eventIDlist[i]).innerHTML = localStorage.getItem(eventIDlist[i]);
+            document.getElementById(eventIDlist[i]).value = localStorage.getItem(eventIDlist[i]);
         }
     }
 
+}
+
+function clearSaved(){
+    localStorage.clear();
 }
